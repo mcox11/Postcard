@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var enterAMessageTextField: UITextField!
     @IBOutlet weak var mailButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +29,29 @@ class ViewController: UIViewController {
     @IBAction func sendMailButtonPressed(sender: UIButton) {
         //  Code will evaluate when we press the button
         // Adding a comment here to test git commits
-        messageLabel.hidden = false
+        
+        // display MessageTextfield in messagelabel and change label color
+        
+        messageLabel.hidden = false // unhide label
         messageLabel.text = enterAMessageTextField.text
         messageLabel.textColor = UIColor.redColor()
         
+        // display nametextfield in nameLabel and change label color
         
+        nameLabel.hidden = false // unhide label
+        nameLabel.text = enterNameTextField.text
+        nameLabel.textColor = UIColor.blueColor()
+
+        
+        // Clear TextFields
         enterAMessageTextField.text = ""
+        enterNameTextField.text = ""
+        
+        // Hide keyboard when button is pressed
         enterAMessageTextField.resignFirstResponder()
         
-        
+        // Change button title
         mailButton.setTitle("Mail Sent", forState: UIControlState.Normal)
-        
     }
 
 }
